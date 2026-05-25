@@ -1,10 +1,8 @@
+-- ============================================================
+-- CRÉATION DE LA BASE
+-- ============================================================
 CREATE DATABASE lycee_management;
 \c lycee_management;
-
--- ============================================================
--- PARTIE ÉTUDIANT (extraite du schéma complet)
--- PostgreSQL
--- ============================================================
 
 -- ============================================================
 -- SECTION 1 — AUTHENTIFICATION
@@ -85,7 +83,7 @@ CREATE TABLE salles (
 );
 
 -- ============================================================
--- SECTION 3 — PROFILS (étudiant, parent, professeur)
+-- SECTION 3 — PROFILS
 -- ============================================================
 
 CREATE TABLE profils_etudiants (
@@ -168,7 +166,7 @@ CREATE TABLE inscriptions (
 );
 
 -- ============================================================
--- SECTION 5 — MATIERES & PERIODES (CORRIGÉ : SERIAL au lieu de UUID)
+-- SECTION 5 — MATIERES & PERIODES
 -- ============================================================
 
 CREATE TABLE matieres (
@@ -194,26 +192,36 @@ CREATE TABLE periodes (
 );
 
 -- ============================================================
--- SECTION 6 — EMPLOI DU TEMPS (CORRIGÉ : INT au lieu de UUID)
+-- SECTION 6 — EMPLOI DU TEMPS & SEANCES
 -- ============================================================
 
 CREATE TABLE emploi_du_temps (
     id                SERIAL PRIMARY KEY,
-    jour_semaine      VARCHAR(10) NOT NULL CHECK (jour_semaine IN ('Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi')),
+    classe_id         INT NOT NULL REFERENCES classes(id),
+    annee_scolaire_id INT NOT NULL REFERENCES annees_scolaires(id),
+    ordre             INT NOT NULL,
+    matiere_id        INT NOT NULL REFERENCES matieres(id),
+    created_at        TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE seances (
+    id                SERIAL PRIMARY KEY,
+    date_seance       DATE NOT NULL,
+    jour_semaine      VARCHAR(10) NOT NULL,
     heure_debut       TIME NOT NULL,
     heure_fin         TIME NOT NULL,
-    date DATE NOT NULL,
-    annee_scolaire    SMALLINT NOT NULL,
-    classe_id         INT REFERENCES classes(id) ON DELETE CASCADE,
-    matiere_id        INT REFERENCES matieres(id) ON DELETE RESTRICT,
-    professeur_id     INT REFERENCES profils_professeurs(id) ON DELETE RESTRICT,
-    salle_id          INT REFERENCES salles(id) ON DELETE SET NULL,
+    classe_id         INT NOT NULL REFERENCES classes(id),
+    matiere_id        INT NOT NULL REFERENCES matieres(id),
+    professeur_id     INT NOT NULL REFERENCES profils_professeurs(id),
+    salle_id          INT REFERENCES salles(id),
+    annee_scolaire_id INT NOT NULL REFERENCES annees_scolaires(id),
+    est_annule        BOOLEAN DEFAULT FALSE,
     created_at        TIMESTAMP DEFAULT NOW(),
     CHECK (heure_fin > heure_debut)
 );
 
 -- ============================================================
--- SECTION 7 — ABSENCES (CORRIGÉ : INT au lieu de UUID)
+-- SECTION 7 — ABSENCES
 -- ============================================================
 
 CREATE TABLE absences (
@@ -232,7 +240,7 @@ CREATE TABLE absences (
 );
 
 -- ============================================================
--- SECTION 8 — NOTES & MOYENNES (CORRIGÉ : INT au lieu de UUID)
+-- SECTION 8 — NOTES & MOYENNES
 -- ============================================================
 
 CREATE TABLE notes (
@@ -262,7 +270,7 @@ CREATE TABLE moyennes (
 );
 
 -- ============================================================
--- SECTION 9 — DEVOIRS & LEÇONS (CORRIGÉ : INT au lieu de UUID)
+-- SECTION 9 — DEVOIRS & LEÇONS
 -- ============================================================
 
 CREATE TABLE devoirs_lecons (
@@ -335,7 +343,7 @@ CREATE TABLE demandes_modification_dossier (
 );
 
 -- ============================================================
--- SECTION 13 — NOTIFICATIONS (optionnel mais utile pour étudiant)
+-- SECTION 13 — NOTIFICATIONS
 -- ============================================================
 
 CREATE TABLE notification_types (
@@ -363,31 +371,140 @@ CREATE TABLE notifications (
 -- INDEX
 -- ============================================================
 
-CREATE INDEX idx_users_email                ON users(email);
-CREATE INDEX idx_etudiants_matricule        ON profils_etudiants(matricule);
-CREATE INDEX idx_professeurs_matricule      ON profils_professeurs(matricule);
-CREATE INDEX idx_classes_niveau_annee       ON classes(niveau_id, annee_scolaire_id);
-CREATE INDEX idx_inscriptions_etudiant      ON inscriptions(etudiant_id);
-CREATE INDEX idx_inscriptions_classe        ON inscriptions(classe_id);
-CREATE INDEX idx_inscriptions_annee         ON inscriptions(annee_scolaire_id);
-CREATE INDEX idx_notes_etudiant             ON notes(etudiant_id);
-CREATE INDEX idx_notes_periode              ON notes(periode_id);
-CREATE INDEX idx_moyennes_etudiant          ON moyennes(etudiant_id, inscription_id);
-CREATE INDEX idx_absences_etudiant          ON absences(etudiant_id);
-CREATE INDEX idx_absences_seance            ON absences(seance_id);
-CREATE INDEX idx_seances_date               ON seances(date_seance);
-CREATE INDEX idx_devoirs_classe             ON devoirs_lecons(classe_id);
-CREATE INDEX idx_notif_user_lu              ON notifications(user_id, est_lu);
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_etudiants_matricule ON profils_etudiants(matricule);
+CREATE INDEX idx_professeurs_matricule ON profils_professeurs(matricule);
+CREATE INDEX idx_classes_niveau_annee ON classes(niveau_id, annee_scolaire_id);
+CREATE INDEX idx_inscriptions_etudiant ON inscriptions(etudiant_id);
+CREATE INDEX idx_inscriptions_classe ON inscriptions(classe_id);
+CREATE INDEX idx_inscriptions_annee ON inscriptions(annee_scolaire_id);
+CREATE INDEX idx_notes_etudiant ON notes(etudiant_id);
+CREATE INDEX idx_notes_periode ON notes(periode_id);
+CREATE INDEX idx_moyennes_etudiant ON moyennes(etudiant_id, inscription_id);
+CREATE INDEX idx_absences_etudiant ON absences(etudiant_id);
+CREATE INDEX idx_absences_seance ON absences(seance_id);
+CREATE INDEX idx_seances_date ON seances(date_seance);
+CREATE INDEX idx_devoirs_classe ON devoirs_lecons(classe_id);
+CREATE INDEX idx_notif_user_lu ON notifications(user_id, est_lu);
 
 -- ============================================================
--- DONNÉES INITIALES
+-- DONNÉES INITIALES (ROLES)
 -- ============================================================
 
 INSERT INTO roles (nom, description) VALUES
-    ('professeur',   'Saisie notes, absences, emploi du temps'),
-    ('etudiant',     'Consultation notes, dossier, emploi du temps'),
-    ('parent',       'Consultation dossier enfant, notifications');
+    ('professeur', 'Saisie notes, absences, emploi du temps'),
+    ('etudiant', 'Consultation notes, dossier, emploi du temps'),
+    ('parent', 'Consultation dossier enfant, notifications');
+
+-- ============================================================
+-- INSERTION DES DONNÉES DE TEST
+-- ============================================================
+
+-- Établissement
+INSERT INTO etablissements (nom, adresse, telephone, email) VALUES
+('Lycée Moderne', 'Antananarivo', '034 00 000 00', 'contact@lycee.mg');
+
+-- Année scolaire
+INSERT INTO annees_scolaires (etablissement_id, libelle, date_debut, date_fin, est_active) VALUES
+(1, '2024-2025', '2024-09-01', '2025-06-30', TRUE);
+
+-- Niveaux
+INSERT INTO niveaux (etablissement_id, libelle, ordre) VALUES
+(1, 'Seconde', 1),
+(1, 'Première', 2),
+(1, 'Terminale', 3);
+
+-- Classes
+INSERT INTO classes (niveau_id, annee_scolaire_id, nom, capacite_max) VALUES
+(1, 1, 'Seconde A', 35),
+(2, 1, 'Première C', 30),
+(3, 1, 'Terminale D', 30);
+
+-- Salles
+INSERT INTO salles (etablissement_id, nom, capacite, type) VALUES
+(1, 'Salle 101', 40, 'cours'),
+(1, 'Salle 102', 35, 'cours'),
+(1, 'Labo SVT', 25, 'laboratoire');
+
+-- Matières
+INSERT INTO matieres (code_matiere, intitule, coefficient) VALUES
+('MATH', 'Mathématiques', 4),
+('PC', 'Physique-Chimie', 3),
+('FR', 'Français', 3),
+('ANG', 'Anglais', 2);
+
+-- Utilisateurs (mot de passe = '123456')
+INSERT INTO users (email, password_hash, is_active) VALUES
+('rakoto.john@student.mg', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', TRUE),
+('rasoa.mary@student.mg', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', TRUE),
+('rabe.prof@school.mg', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', TRUE),
+('rasamuel.prof@school.mg', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', TRUE);
+
+-- Liaison utilisateurs-rôles
+INSERT INTO user_roles (user_id, role_id) VALUES
+(1, (SELECT id FROM roles WHERE nom = 'etudiant')),
+(2, (SELECT id FROM roles WHERE nom = 'etudiant')),
+(3, (SELECT id FROM roles WHERE nom = 'professeur')),
+(4, (SELECT id FROM roles WHERE nom = 'professeur'));
+
+-- Profils étudiants
+INSERT INTO profils_etudiants (user_id, matricule, nom, prenom) VALUES
+(1, '2024001', 'RAKOTO', 'John'),
+(2, '2024002', 'RASOA', 'Mary');
+
+-- Profils professeurs
+INSERT INTO profils_professeurs (user_id, matricule, nom, prenom, specialite) VALUES
+(3, 'PROF001', 'RABE', 'Paul', 'Mathématiques'),
+(4, 'PROF002', 'RASAMUEL', 'Claire', 'Physique-Chimie');
+
+-- Inscriptions
+INSERT INTO inscriptions (etudiant_id, classe_id, annee_scolaire_id, statut) VALUES
+(1, 3, 1, 'active'),
+(2, 2, 1, 'active');
+
+-- Périodes
+INSERT INTO periodes (libelle, type_periode, date_debut, date_fin, annee_scolaire) VALUES
+('1er Trimestre', 'trimestre', '2024-09-01', '2024-12-15', 2024);
+
+-- Séances
+INSERT INTO seances (date_seance, jour_semaine, heure_debut, heure_fin, classe_id, matiere_id, professeur_id, salle_id, annee_scolaire_id) VALUES
+('2024-09-02', 'Lundi', '08:00:00', '10:00:00', 3, 1, 3, 1, 1),
+('2024-09-03', 'Mardi', '08:00:00', '10:00:00', 3, 2, 4, 2, 1),
+('2024-09-04', 'Mercredi', '08:00:00', '10:00:00', 2, 1, 3, 1, 1),
+('2024-09-05', 'Jeudi', '10:00:00', '12:00:00', 3, 3, 3, 1, 1);
+
+-- Notes
+INSERT INTO notes (valeur, type_evaluation, date_evaluation, etudiant_id, matiere_id, professeur_id, periode_id) VALUES
+(15, 'devoir', '2024-09-20', 1, 1, 3, 1),
+(14, 'devoir', '2024-09-22', 1, 2, 4, 1),
+(16, 'interrogation', '2024-09-25', 1, 3, 3, 1),
+(13, 'devoir', '2024-09-20', 2, 1, 3, 1),
+(15, 'devoir', '2024-09-23', 2, 4, 3, 1);
+
+-- Absences
+INSERT INTO absences (seance_id, etudiant_id, type, motif) VALUES
+(1, 2, 'non_justifiee', NULL);
+
+-- Documents
+INSERT INTO documents (etudiant_id, type_document, titre, annee_scolaire_id, periode_id) VALUES
+(1, 'releve_notes', 'Relevé T1 2024-2025', 1, 1),
+(2, 'releve_notes', 'Relevé T1 2024-2025', 1, 1);
+
+-- Types de notifications
+INSERT INTO notification_types (code, libelle, template_message) VALUES
+('notes_publiees', 'Notes disponibles', 'Vos notes sont disponibles');
+
+-- Notifications
+INSERT INTO notifications (user_id, type_id, titre, message) VALUES
+(1, 1, 'Notes disponibles', 'Vos notes du trimestre sont consultables'),
+(2, 1, 'Notes disponibles', 'Vos notes du trimestre sont consultables');
 
 -- ============================================================
 -- FIN
 -- ============================================================
+\echo 'Base de données créée avec succès !'
+\echo 'Comptes de test :'
+\echo '  Étudiant: rakoto.john@student.mg / 123456'
+\echo '  Étudiant: rasoa.mary@student.mg / 123456'
+\echo '  Professeur: rabe.prof@school.mg / 123456'
+\echo '  Professeur: rasamuel.prof@school.mg / 123456'
