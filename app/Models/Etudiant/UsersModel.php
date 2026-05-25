@@ -1,6 +1,10 @@
 <?php
 
+
 namespace App\Models\Etudiant;
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 use CodeIgniter\Model;
 
