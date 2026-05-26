@@ -39,6 +39,6 @@ $routes->group('etudiant', function ($routes) {
 
     $routes->get('bulletin', 'Home::bulletin_etudiants');
     $routes->get('calendar', 'Etudiant\CalendarController::index');  // ← MODIFIÉ
-    $routes->get('notes', 'Home::notes_etudiants');
+    $routes->get('notes', 'Etudiant\NotesController::go_to_notes');
     $routes->get('devoirs', 'Home::devoirs_etudiants');
 });

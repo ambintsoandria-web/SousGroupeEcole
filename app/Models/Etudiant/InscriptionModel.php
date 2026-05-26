@@ -23,7 +23,7 @@ class InscriptionModel extends Model
 
     public function getClasseEtudiant($id_etudiant)
     {
-        return $this->select('classes.id, classes.nom, niveaux.libelle as niveau_libelle')
+        return $this->select('classes.id, classes.nom, niveaux.libelle as niveau_libelle, inscriptions.annee_scolaire_id')
             ->join('classes', 'classes.id = inscriptions.classe_id')
             ->join('niveaux', 'niveaux.id = classes.niveau_id')
             ->where('inscriptions.etudiant_id', $id_etudiant)
