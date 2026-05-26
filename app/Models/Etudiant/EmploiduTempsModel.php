@@ -12,8 +12,8 @@ class EmploiduTempsModel extends Model
     protected $allowedFields = [
         'classe_id',
         'annee_scolaire_id',
-        'ordre',
-        'matiere_id',
+        'date_debut',
+        'date_fin',
         'created_at',
     ];
     protected $useTimestamps = true;
