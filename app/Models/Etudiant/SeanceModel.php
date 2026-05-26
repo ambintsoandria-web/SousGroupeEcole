@@ -23,26 +23,49 @@ class SeanceModel extends Model
     ];
     protected $useTimestamps = true;
 
-    public function getSeancesByClasse($classe_id)
+    public function getSeancesByClasse($classe_id, $periode_id = null)
     {
-        return $this->select('seances.*, matieres.intitule as matiere_nom, profils_professeurs.nom as prof_nom, profils_professeurs.prenom as prof_prenom, salles.nom as salle_nom')
+        $builder = $this->select('seances.*, matieres.intitule as matiere_nom, profils_professeurs.nom as prof_nom, profils_professeurs.prenom as prof_prenom, salles.nom as salle_nom')
             ->join('matieres', 'matieres.id = seances.matiere_id')
             ->join('profils_professeurs', 'profils_professeurs.id = seances.professeur_id', 'left')
             ->join('salles', 'salles.id = seances.salle_id', 'left')
             ->join('emploi_du_temps', 'emploi_du_temps.id = seances.emploi_du_temps_id')
             ->where('emploi_du_temps.classe_id', $classe_id)
-            ->where('seances.est_annule', FALSE)
-            ->orderBy("CASE seances.jour_semaine 
-                WHEN 'Lundi' THEN 1 
-                WHEN 'Mardi' THEN 2 
-                WHEN 'Mercredi' THEN 3 
-                WHEN 'Jeudi' THEN 4 
-                WHEN 'Vendredi' THEN 5 
-                ELSE 6 END")
+            ->where('seances.est_annule', FALSE);
+
+        if ($periode_id !== null) {
+            $builder->where('emploi_du_temps.periode_id', $periode_id);
+        }
+
+        return $builder->orderBy("CASE seances.jour_semaine 
+        WHEN 'Lundi' THEN 1 
+        WHEN 'Mardi' THEN 2 
+        WHEN 'Mercredi' THEN 3 
+        WHEN 'Jeudi' THEN 4 
+        WHEN 'Vendredi' THEN 5 
+        ELSE 6 END")
             ->orderBy('seances.heure_debut')
             ->findAll();
     }
 
+    public function getPlanningOrganise($classe_id, $periode_id = null)
+    {
+        $seances = $this->getSeancesByClasse($classe_id, $periode_id);
+        $planning = [];
+
+        foreach ($seances as $seance) {
+            $jour = $seance['jour_semaine'];
+            $heure = substr($seance['heure_debut'], 0, 5);
+
+            $planning[$jour][$heure] = [
+                'matiere' => $seance['matiere_nom'],
+                'professeur' => trim($seance['prof_nom'] . ' ' . $seance['prof_prenom']),
+                'salle' => $seance['salle_nom']
+            ];
+        }
+
+        return $planning;
+    }
     public function getCreneauxHoraires()
     {
         $result = $this->select('heure_debut, heure_fin')
@@ -61,23 +84,5 @@ class SeanceModel extends Model
     public function getJours()
     {
         return ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi'];
-    }
-    public function getPlanningOrganise($classe_id)
-    {
-        $seances = $this->getSeancesByClasse($classe_id);
-        $planning = [];
-
-        foreach ($seances as $seance) {
-            $jour = $seance['jour_semaine'];
-            $heure = substr($seance['heure_debut'], 0, 5);
-
-            $planning[$jour][$heure] = [
-                'matiere' => $seance['matiere_nom'],
-                'professeur' => trim($seance['prof_nom'] . ' ' . $seance['prof_prenom']),
-                'salle' => $seance['salle_nom']
-            ];
-        }
-
-        return $planning;
     }
 }
