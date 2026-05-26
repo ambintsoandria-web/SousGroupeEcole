@@ -32,6 +32,17 @@ class NotesModel extends Model
         }
         return $liste_moyenne;
     }
+    public function getClassementEleve($moyenne, $annee_scolaire_id, $periode_id)
+    {
+        $liste_moyennes = $this->getMoyennes($annee_scolaire_id, $periode_id);
+        $classement = 0;
+        for ($i = 0; $i < count($liste_moyennes); $i++) {
+            if ($liste_moyennes[$i] == $moyenne) {
+                $classement = $i + 1;
+            }
+        }
+        return $classement;
+    }
     public function calculerMoyenne($id_etudiant, $annee_scolaire_id, $periode_id)
     {
         $liste_notes = $this->getNotesEtudiant($id_etudiant, $annee_scolaire_id, $periode_id);
