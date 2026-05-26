@@ -16,4 +16,22 @@ class EtudiantModel extends Model
     {
         return strtoupper(substr($nom, 0, 1) . substr($prenom, 0, 1));
     }
+    public function getClasseEtudiant($id_etudiant)
+    {
+        $db = \Config\Database::connect();
+
+        $query = $db->table('inscriptions')
+            ->select('classe_id')
+            ->where('etudiant_id', '=', $id_etudiant)
+            ->orderBy('date_inscription')
+            ->limit(1)->get();
+
+        $result = $query->getRow();
+
+        if ($result) {
+            return $result->id;
+        }
+
+        return null;
+    }
 }

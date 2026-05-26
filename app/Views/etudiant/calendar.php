@@ -1,60 +1,54 @@
 <?php
-  $pageTitle = 'Mon Emploi du Temps';
-  $activePage = 'etu-emploi';
-  $activeRole = 'etudiant';
-  $userName = 'Rakoto Jean';
-  $userRole = 'Étudiant';
-  $userInitials = 'RJ';
+$pageTitle = $pageTitle ?? 'Mon Emploi du Temps';
+$activePage = $activePage ?? 'etu-emploi';
 ?>
 
-<?= view('inc/header',['pageTitle' => $pageTitle, 'activePage' => $activePage]) ?>
+<?= view('inc/header', ['pageTitle' => $pageTitle, 'activePage' => $activePage]) ?>
 
-    <section class="page-section active" id="etu-emploi">
-      <div class="page-header">
-        <div><h2>Mon Emploi du Temps</h2><p>Semaine du 14 au 18 Avril 2026 — Terminale C</p></div>
-      </div>
-      <div class="card">
-        <div class="card-body" style="padding:var(--sp-md);">
-          <div class="schedule-grid">
-            <div class="schedule-header">Heure</div>
-            <div class="schedule-header">Lundi</div>
-            <div class="schedule-header">Mardi</div>
-            <div class="schedule-header">Mercredi</div>
-            <div class="schedule-header">Jeudi</div>
-            <div class="schedule-header">Vendredi</div>
+<section class="page-section active" id="etu-emploi">
+  <link rel="stylesheet" href="/assets/css/calendar.css">
+  <div class="page-header">
+    <div>
+      <h2>📅 Mon Emploi du Temps</h2>
+      <p class=""><?= esc($nom_classe ?? 'Ma Classe') ?></p>
+    </div>
+  </div>
 
-            <div class="schedule-cell schedule-time">07h–08h</div>
-            <div class="schedule-cell"><div class="schedule-class math"><span>Mathématiques</span><small>Prof. Rabe</small></div></div>
-            <div class="schedule-cell"><div class="schedule-class french"><span>Français</span><small>Prof. Rasoa</small></div></div>
-            <div class="schedule-cell"><div class="schedule-class math"><span>Mathématiques</span><small>Prof. Rabe</small></div></div>
-            <div class="schedule-cell"><div class="schedule-class history"><span>Histoire-Géo</span><small>Prof. Hery</small></div></div>
-            <div class="schedule-cell"><div class="schedule-class math"><span>Mathématiques</span><small>Prof. Rabe</small></div></div>
-
-            <div class="schedule-cell schedule-time">08h–09h</div>
-            <div class="schedule-cell"><div class="schedule-class science"><span>Sc. Physiques</span><small>Prof. Andry</small></div></div>
-            <div class="schedule-cell"><div class="schedule-class math"><span>Mathématiques</span><small>Prof. Rabe</small></div></div>
-            <div class="schedule-cell"><div class="schedule-class french"><span>Français</span><small>Prof. Rasoa</small></div></div>
-            <div class="schedule-cell"><div class="schedule-class math"><span>Mathématiques</span><small>Prof. Rabe</small></div></div>
-            <div class="schedule-cell"><div class="schedule-class science"><span>SVT</span><small>Prof. Mamy</small></div></div>
-
-            <div class="schedule-cell schedule-time">09h–10h</div>
-            <div class="schedule-cell"></div>
-            <div class="schedule-cell"><div class="schedule-class history"><span>Histoire-Géo</span><small>Prof. Hery</small></div></div>
-            <div class="schedule-cell"><div class="schedule-class science"><span>Sc. Physiques</span><small>Prof. Andry</small></div></div>
-            <div class="schedule-cell"><div class="schedule-class french"><span>Français</span><small>Prof. Rasoa</small></div></div>
-            <div class="schedule-cell"></div>
-
-            <div class="schedule-cell schedule-time">14h–15h</div>
-            <div class="schedule-cell"><div class="schedule-class french"><span>Anglais</span><small>Prof. Jean</small></div></div>
-            <div class="schedule-cell"><div class="schedule-class science"><span>SVT</span><small>Prof. Mamy</small></div></div>
-            <div class="schedule-cell"></div>
-            <div class="schedule-cell"><div class="schedule-class science"><span>Anglais</span><small>Prof. Jean</small></div></div>
-            <div class="schedule-cell"><div class="schedule-class math"><span>Interrogation</span><small>Prof. Rabe</small></div></div>
-          </div>
+  <div class="edt-container">
+    <div class="edt-grid">
+      <!-- En-tête -->
+      <div class="edt-cell edt-header">Horaire</div>
+      <?php foreach ($jours as $jour): ?>
+        <div class="edt-cell edt-header">
+          <div class="day-name"><?= esc(substr($jour, 0, 3)) ?></div>
+          <div class="day-full"><?= esc($jour) ?></div>
         </div>
-      </div>
-    </section>
+      <?php endforeach; ?>
 
-<?= view('inc/modals') ?>
+      <!-- Lignes de cours -->
+      <?php foreach ($creneaux as $heure => $label): ?>
+        <div class="edt-cell edt-time"><?= esc($label) ?></div>
+        <?php foreach ($jours as $jour): ?>
+          <div class="edt-cell edt-course">
+            <?php if (isset($planning[$jour][$heure])):
+              $cours = $planning[$jour][$heure];
+              ?>
+              <div class="course-card">
+                <div class="course-matiere"><?= esc($cours['matiere']) ?></div>
+                <div class="course-prof">👨‍🏫 <?= esc($cours['professeur']) ?></div>
+                <?php if (!empty($cours['salle'])): ?>
+                  <div class="course-salle">📍 <?= esc($cours['salle']) ?></div>
+                <?php endif; ?>
+              </div>
+            <?php endif; ?>
+          </div>
+        <?php endforeach; ?>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
+
+<style>
+</style>
 
 <?= view('inc/footer') ?>

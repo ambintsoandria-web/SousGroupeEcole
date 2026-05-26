@@ -1,6 +1,7 @@
 -- ============================================================
 -- CRÉATION DE LA BASE
 -- ============================================================
+DROP DATABASE IF EXISTS lycee_management;
 CREATE DATABASE lycee_management;
 \c lycee_management;
 
@@ -161,8 +162,7 @@ CREATE TABLE inscriptions (
     rang_final        INT,
     est_admis         BOOLEAN,
     created_at        TIMESTAMP DEFAULT NOW(),
-    updated_at        TIMESTAMP DEFAULT NOW(),
-    UNIQUE (etudiant_id, annee_scolaire_id)
+    updated_at        TIMESTAMP DEFAULT NOW()
 );
 
 -- ============================================================
@@ -190,36 +190,35 @@ CREATE TABLE periodes (
     created_at     TIMESTAMP DEFAULT NOW(),
     CHECK (date_fin > date_debut)
 );
-
 -- ============================================================
--- SECTION 6 — EMPLOI DU TEMPS & SEANCES
+-- EMPLOI DU TEMPS (planning sur une période)
 -- ============================================================
-
 CREATE TABLE emploi_du_temps (
     id                SERIAL PRIMARY KEY,
     classe_id         INT NOT NULL REFERENCES classes(id),
     annee_scolaire_id INT NOT NULL REFERENCES annees_scolaires(id),
-    ordre             INT NOT NULL,
-    matiere_id        INT NOT NULL REFERENCES matieres(id),
+    date_debut        DATE NOT NULL,
+    date_fin          DATE NOT NULL,
     created_at        TIMESTAMP DEFAULT NOW()
 );
 
+-- ============================================================
+-- SEANCES (chaque cours)
+-- ============================================================
 CREATE TABLE seances (
     id                SERIAL PRIMARY KEY,
-    date_seance       DATE NOT NULL,
-    jour_semaine      VARCHAR(10) NOT NULL,
-    heure_debut       TIME NOT NULL,
-    heure_fin         TIME NOT NULL,
-    classe_id         INT NOT NULL REFERENCES classes(id),
-    matiere_id        INT NOT NULL REFERENCES matieres(id),
-    professeur_id     INT NOT NULL REFERENCES profils_professeurs(id),
-    salle_id          INT REFERENCES salles(id),
-    annee_scolaire_id INT NOT NULL REFERENCES annees_scolaires(id),
-    est_annule        BOOLEAN DEFAULT FALSE,
-    created_at        TIMESTAMP DEFAULT NOW(),
+    emploi_du_temps_id INT NOT NULL REFERENCES emploi_du_temps(id) ON DELETE CASCADE,
+    jour_semaine       VARCHAR(10) NOT NULL,
+    heure_debut        TIME NOT NULL,
+    heure_fin          TIME NOT NULL,
+    matiere_id         INT NOT NULL REFERENCES matieres(id),
+    professeur_id      INT NOT NULL REFERENCES profils_professeurs(id),
+    salle_id           INT REFERENCES salles(id),
+    est_annule         BOOLEAN DEFAULT FALSE,
+    created_at         TIMESTAMP DEFAULT NOW(),
+    date_seance DATE,
     CHECK (heure_fin > heure_debut)
 );
-
 -- ============================================================
 -- SECTION 7 — ABSENCES
 -- ============================================================
@@ -289,26 +288,7 @@ CREATE TABLE devoirs_lecons (
 );
 
 -- ============================================================
--- SECTION 10 — MODIFICATIONS EDT
--- ============================================================
-
-CREATE TABLE modifications_edt (
-    id                   SERIAL PRIMARY KEY,
-    emploi_du_temps_id   INT REFERENCES emploi_du_temps(id),
-    date_concernee       DATE NOT NULL,
-    portee               VARCHAR(20) DEFAULT 'ponctuel',
-    type_modification    VARCHAR(50) NOT NULL,
-    motif                VARCHAR(500),
-    nouvelle_salle_id    INT REFERENCES salles(id),
-    nouvelle_heure_debut TIME,
-    nouvelle_heure_fin   TIME,
-    remplacant_id        INT REFERENCES profils_professeurs(id),
-    cree_par             INT REFERENCES users(id),
-    created_at           TIMESTAMP DEFAULT NOW()
-);
-
--- ============================================================
--- SECTION 11 — DOCUMENTS GÉNÉRÉS
+-- SECTION 10 — DOCUMENTS GÉNÉRÉS
 -- ============================================================
 
 CREATE TABLE documents (
@@ -325,7 +305,7 @@ CREATE TABLE documents (
 );
 
 -- ============================================================
--- SECTION 12 — DEMANDES MODIFICATION DOSSIER
+-- SECTION 11 — DEMANDES MODIFICATION DOSSIER
 -- ============================================================
 
 CREATE TABLE demandes_modification_dossier (
@@ -343,7 +323,7 @@ CREATE TABLE demandes_modification_dossier (
 );
 
 -- ============================================================
--- SECTION 13 — NOTIFICATIONS
+-- SECTION 12 — NOTIFICATIONS
 -- ============================================================
 
 CREATE TABLE notification_types (
@@ -400,80 +380,67 @@ INSERT INTO roles (nom, description) VALUES
 -- INSERTION DES DONNÉES DE TEST
 -- ============================================================
 
--- Établissement
 INSERT INTO etablissements (nom, adresse, telephone, email) VALUES
 ('Lycée Moderne', 'Antananarivo', '034 00 000 00', 'contact@lycee.mg');
 
--- Année scolaire
 INSERT INTO annees_scolaires (etablissement_id, libelle, date_debut, date_fin, est_active) VALUES
 (1, '2024-2025', '2024-09-01', '2025-06-30', TRUE);
 
--- Niveaux
 INSERT INTO niveaux (etablissement_id, libelle, ordre) VALUES
 (1, 'Seconde', 1),
 (1, 'Première', 2),
 (1, 'Terminale', 3);
 
--- Classes
 INSERT INTO classes (niveau_id, annee_scolaire_id, nom, capacite_max) VALUES
 (1, 1, 'Seconde A', 35),
 (2, 1, 'Première C', 30),
 (3, 1, 'Terminale D', 30);
 
--- Salles
 INSERT INTO salles (etablissement_id, nom, capacite, type) VALUES
 (1, 'Salle 101', 40, 'cours'),
 (1, 'Salle 102', 35, 'cours'),
 (1, 'Labo SVT', 25, 'laboratoire');
 
--- Matières
 INSERT INTO matieres (code_matiere, intitule, coefficient) VALUES
 ('MATH', 'Mathématiques', 4),
 ('PC', 'Physique-Chimie', 3),
 ('FR', 'Français', 3),
 ('ANG', 'Anglais', 2);
 
--- Utilisateurs (mot de passe = '123456')
+-- Mot de passe = '123456'
 INSERT INTO users (email, password_hash, is_active) VALUES
 ('rakoto.john@student.mg', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', TRUE),
 ('rasoa.mary@student.mg', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', TRUE),
 ('rabe.prof@school.mg', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', TRUE),
 ('rasamuel.prof@school.mg', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', TRUE);
 
--- Liaison utilisateurs-rôles
 INSERT INTO user_roles (user_id, role_id) VALUES
 (1, (SELECT id FROM roles WHERE nom = 'etudiant')),
 (2, (SELECT id FROM roles WHERE nom = 'etudiant')),
 (3, (SELECT id FROM roles WHERE nom = 'professeur')),
 (4, (SELECT id FROM roles WHERE nom = 'professeur'));
 
--- Profils étudiants
 INSERT INTO profils_etudiants (user_id, matricule, nom, prenom) VALUES
 (1, '2024001', 'RAKOTO', 'John'),
 (2, '2024002', 'RASOA', 'Mary');
 
--- Profils professeurs
 INSERT INTO profils_professeurs (user_id, matricule, nom, prenom, specialite) VALUES
 (3, 'PROF001', 'RABE', 'Paul', 'Mathématiques'),
 (4, 'PROF002', 'RASAMUEL', 'Claire', 'Physique-Chimie');
 
--- Inscriptions
 INSERT INTO inscriptions (etudiant_id, classe_id, annee_scolaire_id, statut) VALUES
 (1, 3, 1, 'active'),
 (2, 2, 1, 'active');
 
--- Périodes
 INSERT INTO periodes (libelle, type_periode, date_debut, date_fin, annee_scolaire) VALUES
 ('1er Trimestre', 'trimestre', '2024-09-01', '2024-12-15', 2024);
 
--- Séances
 INSERT INTO seances (date_seance, jour_semaine, heure_debut, heure_fin, classe_id, matiere_id, professeur_id, salle_id, annee_scolaire_id) VALUES
 ('2024-09-02', 'Lundi', '08:00:00', '10:00:00', 3, 1, 3, 1, 1),
 ('2024-09-03', 'Mardi', '08:00:00', '10:00:00', 3, 2, 4, 2, 1),
 ('2024-09-04', 'Mercredi', '08:00:00', '10:00:00', 2, 1, 3, 1, 1),
 ('2024-09-05', 'Jeudi', '10:00:00', '12:00:00', 3, 3, 3, 1, 1);
 
--- Notes
 INSERT INTO notes (valeur, type_evaluation, date_evaluation, etudiant_id, matiere_id, professeur_id, periode_id) VALUES
 (15, 'devoir', '2024-09-20', 1, 1, 3, 1),
 (14, 'devoir', '2024-09-22', 1, 2, 4, 1),
@@ -481,20 +448,13 @@ INSERT INTO notes (valeur, type_evaluation, date_evaluation, etudiant_id, matier
 (13, 'devoir', '2024-09-20', 2, 1, 3, 1),
 (15, 'devoir', '2024-09-23', 2, 4, 3, 1);
 
--- Absences
-INSERT INTO absences (seance_id, etudiant_id, type, motif) VALUES
-(1, 2, 'non_justifiee', NULL);
-
--- Documents
 INSERT INTO documents (etudiant_id, type_document, titre, annee_scolaire_id, periode_id) VALUES
 (1, 'releve_notes', 'Relevé T1 2024-2025', 1, 1),
 (2, 'releve_notes', 'Relevé T1 2024-2025', 1, 1);
 
--- Types de notifications
 INSERT INTO notification_types (code, libelle, template_message) VALUES
 ('notes_publiees', 'Notes disponibles', 'Vos notes sont disponibles');
 
--- Notifications
 INSERT INTO notifications (user_id, type_id, titre, message) VALUES
 (1, 1, 'Notes disponibles', 'Vos notes du trimestre sont consultables'),
 (2, 1, 'Notes disponibles', 'Vos notes du trimestre sont consultables');
@@ -502,9 +462,36 @@ INSERT INTO notifications (user_id, type_id, titre, message) VALUES
 -- ============================================================
 -- FIN
 -- ============================================================
+\echo '============================================================'
 \echo 'Base de données créée avec succès !'
+\echo '============================================================'
 \echo 'Comptes de test :'
 \echo '  Étudiant: rakoto.john@student.mg / 123456'
 \echo '  Étudiant: rasoa.mary@student.mg / 123456'
 \echo '  Professeur: rabe.prof@school.mg / 123456'
 \echo '  Professeur: rasamuel.prof@school.mg / 123456'
+\echo '============================================================'
+
+
+-- Séances pour Terminale D
+INSERT INTO seances (emploi_du_temps_id, jour_semaine, heure_debut, heure_fin, matiere_id, professeur_id, salle_id) VALUES
+(1, 'Lundi',    '08:00:00', '10:00:00', 1, 1, 1),  -- Maths (prof RABE id=1)
+(1, 'Mardi',    '08:00:00', '10:00:00', 2, 2, 2),  -- PC (prof RASAMUEL id=2)
+(1, 'Mercredi', '10:00:00', '12:00:00', 3, 1, 1),  -- Français
+(1, 'Jeudi',    '08:00:00', '10:00:00', 1, 1, 1),  -- Maths
+(1, 'Vendredi', '08:00:00', '10:00:00', 4, 1, 1);  -- Anglais
+
+-- Séances pour Première C
+INSERT INTO seances (emploi_du_temps_id, jour_semaine, heure_debut, heure_fin, matiere_id, professeur_id, salle_id) VALUES
+(2, 'Lundi',    '08:00:00', '10:00:00', 1, 1, 1),
+(2, 'Mercredi', '08:00:00', '10:00:00', 1, 1, 1),
+(2, 'Jeudi',    '10:00:00', '12:00:00', 3, 1, 1),
+(2, 'Vendredi', '08:00:00', '10:00:00', 4, 1, 1);
+
+
+SELECT * FROM inscription WHERE etudiant_id = 2 ORDER BY date_inscription LIMIT 1;
+
+
+SELECT * FROM emploi_du_temps JOIN seances ON emploi_du_temps.id = seances.emploi_du_temps_id WHERE classe_id = 3;
+SELECT jour_semaine FROM seances GROUP BY jour_semaine ORDER BY jour_semaine;
+SELECT heure_debut,heure_fin FROM seances  JOIN emploi_du_temps ON emploi_du_temps.id = seances.emploi_du_temps_id WHERE jour_semaine = 'Lundi' AND classe_id = 1;
