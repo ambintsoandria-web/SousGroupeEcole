@@ -1,0 +1,1014 @@
+CRITICAL - 2026-05-27 12:14:57 --> ErrorException: Undefined variable $initiales
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 162.
+ 1 APPPATH/Views/inc/header.php(162): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(10): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:14:58 --> ErrorException: Undefined variable $initiales
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 162.
+ 1 APPPATH/Views/inc/header.php(162): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(10): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:14:58 --> ErrorException: Undefined variable $initiales
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 162.
+ 1 APPPATH/Views/inc/header.php(162): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(10): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:14:58 --> ErrorException: Undefined variable $initiales
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 162.
+ 1 APPPATH/Views/inc/header.php(162): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(10): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:14:58 --> ErrorException: Undefined variable $initiales
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 162.
+ 1 APPPATH/Views/inc/header.php(162): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(10): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:14:59 --> ErrorException: Undefined variable $initiales
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 162.
+ 1 APPPATH/Views/inc/header.php(162): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(10): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:15:00 --> ErrorException: Undefined variable $initiales
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 162.
+ 1 APPPATH/Views/inc/header.php(162): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(10): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:15:00 --> ErrorException: Undefined variable $initiales
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 162.
+ 1 APPPATH/Views/inc/header.php(162): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(10): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:15:00 --> ErrorException: Undefined variable $initiales
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 162.
+ 1 APPPATH/Views/inc/header.php(162): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(10): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:15:02 --> ErrorException: Undefined variable $initiales
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 162.
+ 1 APPPATH/Views/inc/header.php(162): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(10): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:15:37 --> ErrorException: Undefined variable $initiales
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 165.
+ 1 APPPATH/Views/inc/header.php(165): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(12): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:15:37 --> ErrorException: Undefined variable $initiales
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 165.
+ 1 APPPATH/Views/inc/header.php(165): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(12): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:16:29 --> ErrorException: Undefined variable $initiales
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 165.
+ 1 APPPATH/Views/inc/header.php(165): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(12): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:18:14 --> ErrorException: Array to string conversion
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 165.
+ 1 APPPATH/Views/inc/header.php(165): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(12): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:18:14 --> ErrorException: Array to string conversion
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 165.
+ 1 APPPATH/Views/inc/header.php(165): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(12): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:18:15 --> ErrorException: Array to string conversion
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 165.
+ 1 APPPATH/Views/inc/header.php(165): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(12): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 12:18:15 --> ErrorException: Array to string conversion
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/inc/header.php on line 165.
+ 1 APPPATH/Views/inc/header.php(165): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/inc/header.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Views/etudiant/calendar.php(12): view()
+ 6 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 7 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 9 APPPATH/Controllers/Home.php(89): view()
+10 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+11 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+12 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+13 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+15 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:00:10 --> ErrorException: Undefined variable $semaine
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/etudiant/calendar.php on line 16.
+ 1 APPPATH/Views/etudiant/calendar.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(89): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:00:11 --> ErrorException: Undefined variable $semaine
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/etudiant/calendar.php on line 16.
+ 1 APPPATH/Views/etudiant/calendar.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(89): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:00:11 --> ErrorException: Undefined variable $semaine
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/etudiant/calendar.php on line 16.
+ 1 APPPATH/Views/etudiant/calendar.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(89): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:00:11 --> ErrorException: Undefined variable $semaine
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/etudiant/calendar.php on line 16.
+ 1 APPPATH/Views/etudiant/calendar.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(89): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:03:04 --> ErrorException: Undefined variable $semaine
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/etudiant/calendar.php on line 16.
+ 1 APPPATH/Views/etudiant/calendar.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(89): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:03:04 --> ErrorException: Undefined variable $semaine
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/etudiant/calendar.php on line 16.
+ 1 APPPATH/Views/etudiant/calendar.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(89): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:04:06 --> ErrorException: Undefined variable $semaine
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/etudiant/calendar.php on line 16.
+ 1 APPPATH/Views/etudiant/calendar.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(89): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:04:06 --> ErrorException: Undefined variable $semaine
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/etudiant/calendar.php on line 16.
+ 1 APPPATH/Views/etudiant/calendar.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(89): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:04:06 --> ErrorException: Undefined variable $semaine
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/etudiant/calendar.php on line 16.
+ 1 APPPATH/Views/etudiant/calendar.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(89): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:04:07 --> ErrorException: Undefined variable $semaine
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/etudiant/calendar.php on line 16.
+ 1 APPPATH/Views/etudiant/calendar.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(89): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:04:07 --> ErrorException: Undefined variable $semaine
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Views/etudiant/calendar.php on line 16.
+ 1 APPPATH/Views/etudiant/calendar.php(16): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/calendar.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Home.php(89): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Home->calendar_etudiants()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:05:01 --> Error: Class "App\Models\Etudiant\AnneeScolaireModel" not found
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Controllers/Etudiant/CalendarController.php on line 24.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\CalendarController->index()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:05:02 --> Error: Class "App\Models\Etudiant\AnneeScolaireModel" not found
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Controllers/Etudiant/CalendarController.php on line 24.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\CalendarController->index()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:05:02 --> Error: Class "App\Models\Etudiant\AnneeScolaireModel" not found
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Controllers/Etudiant/CalendarController.php on line 24.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\CalendarController->index()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:05:02 --> Error: Class "App\Models\Etudiant\AnneeScolaireModel" not found
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Controllers/Etudiant/CalendarController.php on line 24.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\CalendarController->index()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:05:20 --> Error: Class "App\Models\Etudiant\AnneeScolaireModel" not found
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Controllers/Etudiant/CalendarController.php on line 28.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\CalendarController->index()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:05:20 --> Error: Class "App\Models\Etudiant\AnneeScolaireModel" not found
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Controllers/Etudiant/CalendarController.php on line 28.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\CalendarController->index()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:05:27 --> Error: Class "App\Models\Etudiant\AnneeScolaireModel" not found
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Controllers/Etudiant/CalendarController.php on line 28.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\CalendarController->index()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:05:33 --> Error: Class "App\Models\Etudiant\AnneeScolaireModel" not found
+[Method: GET, Route: etudiant/calendar]
+in APPPATH/Controllers/Etudiant/CalendarController.php on line 28.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\CalendarController->index()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:35 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:36 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:36 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:40 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:53 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:54 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:22:55 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:23:00 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:23:01 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:23:01 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:23:01 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:23:02 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:23:02 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "etudiant/notes.php"
+[Method: GET, Route: etudiant/notes]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Etudiant/NotesController.php(18): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:37:52 --> ErrorException: Undefined variable $liste_annees
+[Method: GET, Route: etudiant/notes]
+in APPPATH/Views/etudiant/note.php on line 19.
+ 1 APPPATH/Views/etudiant/note.php(19): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/note.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Etudiant/NotesController.php(31): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:37:53 --> ErrorException: Undefined variable $liste_annees
+[Method: GET, Route: etudiant/notes]
+in APPPATH/Views/etudiant/note.php on line 19.
+ 1 APPPATH/Views/etudiant/note.php(19): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/note.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Etudiant/NotesController.php(31): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:37:53 --> ErrorException: Undefined variable $liste_annees
+[Method: GET, Route: etudiant/notes]
+in APPPATH/Views/etudiant/note.php on line 19.
+ 1 APPPATH/Views/etudiant/note.php(19): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/note.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Etudiant/NotesController.php(31): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:37:53 --> ErrorException: Undefined variable $liste_annees
+[Method: GET, Route: etudiant/notes]
+in APPPATH/Views/etudiant/note.php on line 19.
+ 1 APPPATH/Views/etudiant/note.php(19): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/note.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Etudiant/NotesController.php(31): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 13:37:59 --> ErrorException: Undefined variable $liste_annees
+[Method: GET, Route: etudiant/notes]
+in APPPATH/Views/etudiant/note.php on line 19.
+ 1 APPPATH/Views/etudiant/note.php(19): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/home/main/Documents/GitHub/SousGroupeBaovola/app/Views/etudiant/note.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/Etudiant/NotesController.php(31): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_notes()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:34 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\InscriptionModel::getNomClasse
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(83): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:35 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\InscriptionModel::getNomClasse
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(83): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:35 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\InscriptionModel::getNomClasse
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(83): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:53 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\NoteModel::getAppreciationGenerale
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(155): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:53 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\NoteModel::getAppreciationGenerale
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(155): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:54 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\NoteModel::getAppreciationGenerale
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(155): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:54 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\NoteModel::getAppreciationGenerale
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(155): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:54 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\NoteModel::getAppreciationGenerale
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(155): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:54 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\NoteModel::getAppreciationGenerale
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(155): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:54 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\NoteModel::getAppreciationGenerale
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(155): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:54 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\NoteModel::getAppreciationGenerale
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(155): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:55 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\NoteModel::getAppreciationGenerale
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(155): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:55 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\NoteModel::getAppreciationGenerale
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(155): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:55 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\NoteModel::getAppreciationGenerale
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(155): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:55 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\NoteModel::getAppreciationGenerale
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(155): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-27 14:05:55 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\Etudiant\NoteModel::getAppreciationGenerale
+[Method: GET, Route: etudiant/bulletin]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/Etudiant/NotesController.php(155): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Etudiant\NotesController->go_to_bulletin()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()

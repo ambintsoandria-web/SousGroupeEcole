@@ -81,6 +81,7 @@ CREATE TABLE role_permissions (
     PRIMARY KEY (role_id, permission_id)
 );
 
+
 -- ============================================================
 -- SECTION 2 — STRUCTURE DE L'ÉTABLISSEMENT
 -- Tables de référence partagées par toutes les équipes.
@@ -144,32 +145,41 @@ CREATE TABLE salles (
     created_at       TIMESTAMP   DEFAULT NOW()
 );
 
--- 5. MATIERE
--- =============================================================
-CREATE TABLE matiere (
-    id_matiere      UUID          PRIMARY KEY DEFAULT gen_random_uuid(),
-    code_matiere    VARCHAR(20)   NOT NULL UNIQUE,
-    intitule        VARCHAR(150)  NOT NULL,
-    coefficient     NUMERIC(4,2)  NOT NULL DEFAULT 1 CHECK (coefficient > 0),
-    unite           VARCHAR(50),
-    niveau          VARCHAR(30),  -- ex: Terminale, Première, Seconde
-    serie           VARCHAR(30),  -- ex: C, D, A2
-    created_at      TIMESTAMPTZ   NOT NULL DEFAULT NOW()
+-- Matières enseignées dans l'établissement
+CREATE TABLE matieres (
+    id               SERIAL PRIMARY KEY,
+    etablissement_id INT REFERENCES etablissements(id),
+    nom              VARCHAR(150) NOT NULL,           -- ex : 'Mathématiques', 'Français'
+    code             VARCHAR(20),                     -- ex : 'MATH', 'FRAN', 'SVT'
+    created_at       TIMESTAMP DEFAULT NOW()
+);
+
+-- Coefficients d'une matière selon le niveau
+-- Le coeff varie selon le niveau (ex : Maths coeff 4 en Terminale, 3 en Première)
+-- Indispensable pour le calcul correct des moyennes pondérées
+CREATE TABLE coefficients (
+    id         SERIAL PRIMARY KEY,
+    matiere_id INT REFERENCES matieres(id) ON DELETE CASCADE,
+    niveau_id  INT REFERENCES niveaux(id)  ON DELETE CASCADE,
+    valeur     NUMERIC(4,2) NOT NULL,                 -- ex : 4.00, 3.00, 1.50
+    UNIQUE (matiere_id, niveau_id)
 );
 
 -- Périodes d'évaluation (trimestres ou semestres selon l'école)
 -- date_publication_notes : avant cette date, les élèves ne voient pas leurs notes
-CREATE TABLE periode (
-    id_periode      UUID          PRIMARY KEY DEFAULT gen_random_uuid(),
-    libelle         VARCHAR(60)   NOT NULL,   -- ex: "1er Trimestre 2026"
-    type_periode    VARCHAR(20)   NOT NULL
-                    CHECK (type_periode IN ('trimestre','semestre','annuel')),
-    date_debut      DATE          NOT NULL,
-    date_fin        DATE          NOT NULL,
-    annee_scolaire  SMALLINT      NOT NULL,
-    CONSTRAINT chk_dates CHECK (date_fin > date_debut),
-    created_at      TIMESTAMPTZ   NOT NULL DEFAULT NOW()
+CREATE TABLE periodes (
+    id                     SERIAL PRIMARY KEY,
+    annee_scolaire_id      INT REFERENCES annees_scolaires(id),
+    libelle                VARCHAR(100) NOT NULL,     -- ex : '1er Trimestre', '2ème Semestre'
+    type                   VARCHAR(20) DEFAULT 'trimestre',  -- 'trimestre' | 'semestre'
+    ordre                  INT NOT NULL,              -- 1, 2 ou 3
+    date_debut             DATE,
+    date_fin               DATE,
+    date_publication_notes DATE,                      -- date de visibilité des notes pour les élèves
+    est_cloturee           BOOLEAN DEFAULT FALSE      -- TRUE = plus aucune saisie/correction possible
 );
+
+
 -- ============================================================
 -- SECTION 3 — PROFILS DES ACTEURS
 -- Chaque acteur a son propre profil lié à un compte "users".
@@ -307,6 +317,25 @@ CREATE TABLE inscriptions (
 
 
 -- ============================================================
+-- SECTION 5 — AFFECTATIONS D'ENSEIGNEMENT
+-- Définit qui enseigne quoi, dans quelle classe, pour quelle année.
+-- C'est la base de l'emploi du temps et de la saisie des notes.
+-- UNIQUE sur (matiere, classe, annee) : une matière = un seul prof par classe par an
+-- ============================================================
+
+CREATE TABLE affectations_enseignement (
+    id                SERIAL PRIMARY KEY,
+    professeur_id     INT REFERENCES profils_professeurs(id),
+    matiere_id        INT REFERENCES matieres(id),
+    classe_id         INT REFERENCES classes(id),
+    annee_scolaire_id INT REFERENCES annees_scolaires(id),
+    heures_hebdo      NUMERIC(4,1),                   -- volume horaire hebdomadaire dans cette classe
+    created_at        TIMESTAMP DEFAULT NOW(),
+    UNIQUE (matiere_id, classe_id, annee_scolaire_id)
+);
+
+
+-- ============================================================
 -- SECTION 6 — EMPLOI DU TEMPS
 -- Récurrence hebdomadaire + gestion des modifications.
 --
@@ -323,59 +352,18 @@ CREATE TABLE inscriptions (
 -- ============================================================
 
 -- Règles de cours récurrentes hebdomadaires
-CREATE TABLE emploi_temps (
-    id_creneau      UUID          PRIMARY KEY DEFAULT gen_random_uuid(),
-    jour_semaine    VARCHAR(10)   NOT NULL
-                    CHECK (jour_semaine IN ('Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi')),
-    heure_debut     TIME          NOT NULL,
-    heure_fin       TIME          NOT NULL,
-    annee_scolaire  SMALLINT      NOT NULL,
-    CONSTRAINT chk_heures CHECK (heure_fin > heure_debut),
-    id_classe       UUID          NOT NULL REFERENCES classe(id_classe) ON DELETE CASCADE,
-    id_matiere      UUID          NOT NULL REFERENCES matiere(id_matiere) ON DELETE RESTRICT,
-    id_professeur   UUID          NOT NULL REFERENCES professeur(id_professeur) ON DELETE RESTRICT,
-    id_salle        UUID          REFERENCES salle(id_salle) ON DELETE SET NULL,
-    -- Éviter les doublons : même classe, même créneau
-    UNIQUE (id_classe, jour_semaine, heure_debut, annee_scolaire),
-    -- Éviter conflits prof : même prof, même créneau
-    UNIQUE (id_professeur, jour_semaine, heure_debut, annee_scolaire),
-    created_at      TIMESTAMPTZ   NOT NULL DEFAULT NOW()
+CREATE TABLE emploi_du_temps (
+    id                  SERIAL PRIMARY KEY,
+    affectation_id      INT REFERENCES affectations_enseignement(id),
+    salle_id            INT REFERENCES salles(id),
+    jour_semaine        INT NOT NULL CHECK (jour_semaine BETWEEN 1 AND 6),
+    -- 1=Lundi, 2=Mardi, 3=Mercredi, 4=Jeudi, 5=Vendredi, 6=Samedi
+    heure_debut         TIME NOT NULL,
+    heure_fin           TIME NOT NULL,
+    date_debut_validite DATE,                          -- NULL = depuis le début de l'année scolaire
+    date_fin_validite   DATE,                          -- NULL = jusqu'à la fin de l'année scolaire
+    created_at          TIMESTAMP DEFAULT NOW()
 );
-
-
--- =============================================================
-CREATE TABLE absence (
-    id_absence      UUID          PRIMARY KEY DEFAULT gen_random_uuid(),
-    date_absence    DATE          NOT NULL,
-    heure_debut     TIME,
-    heure_fin       TIME,
-    nb_heures       NUMERIC(4,2)  NOT NULL DEFAULT 1 CHECK (nb_heures > 0),
-    justifiee       BOOLEAN       NOT NULL DEFAULT FALSE,
-    motif           TEXT,
-    piece_jointe    TEXT,          -- URL justificatif
-    id_etudiant     UUID          NOT NULL REFERENCES etudiant(id_etudiant) ON DELETE CASCADE,
-    id_matiere      UUID          REFERENCES matiere(id_matiere) ON DELETE SET NULL,
-    id_periode      UUID          REFERENCES periode(id_periode) ON DELETE SET NULL,
-    created_at      TIMESTAMPTZ   NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE devoir_lecon (
-    id_devoir       UUID          PRIMARY KEY DEFAULT gen_random_uuid(),
-    titre           VARCHAR(200)  NOT NULL,
-    type            VARCHAR(20)   NOT NULL
-                    CHECK (type IN ('devoir','leçon','exercice','projet','révision')),
-    description     TEXT,
-    date_publication DATE         NOT NULL DEFAULT CURRENT_DATE,
-    date_remise     DATE,
-    fichier_url     TEXT,
-    id_matiere      UUID          NOT NULL REFERENCES matiere(id_matiere) ON DELETE RESTRICT,
-    id_classe       UUID          NOT NULL REFERENCES classe(id_classe) ON DELETE CASCADE,
-    id_professeur   UUID          NOT NULL REFERENCES professeur(id_professeur) ON DELETE RESTRICT,
-    created_at      TIMESTAMPTZ   NOT NULL DEFAULT NOW(),
-    updated_at      TIMESTAMPTZ   NOT NULL DEFAULT NOW()
-);
-
-
 
 -- Modifications ponctuelles ou permanentes d'un créneau
 -- portee = 'ponctuel'  : ne touche que la date_concernee
@@ -454,19 +442,30 @@ CREATE TABLE absences (
 
 -- Notes individuelles — chaque devoir/composition = une ligne
 -- "sur" permet des notes sur 10 ou sur 100 si l'école le souhaite
-CREATE TABLE note (
-    id_note         UUID          PRIMARY KEY DEFAULT gen_random_uuid(),
-    valeur          NUMERIC(5,2)  NOT NULL CHECK (valeur BETWEEN 0 AND 20),
-    type_evaluation VARCHAR(30)   NOT NULL
-                    CHECK (type_evaluation IN ('devoir','interrogation','examen','composition','TP','oral')),
-    date_evaluation DATE          NOT NULL,
-    observation     TEXT,
-    id_etudiant     UUID          NOT NULL REFERENCES etudiant(id_etudiant) ON DELETE CASCADE,
-    id_matiere      UUID          NOT NULL REFERENCES matiere(id_matiere) ON DELETE RESTRICT,
-    id_professeur   UUID          NOT NULL REFERENCES professeur(id_professeur) ON DELETE RESTRICT,
-    id_periode      UUID          NOT NULL REFERENCES periode(id_periode) ON DELETE RESTRICT,
-    created_at      TIMESTAMPTZ   NOT NULL DEFAULT NOW()
+CREATE TABLE notes (
+    id              SERIAL PRIMARY KEY,
+    etudiant_id     INT REFERENCES profils_etudiants(id),
+    affectation_id  INT REFERENCES affectations_enseignement(id),
+    -- affectation_id regroupe : matière + classe + professeur + année
+    periode_id      INT REFERENCES periodes(id),
+    type_evaluation VARCHAR(100),
+    -- 'devoir_1', 'devoir_2', 'composition', 'examen_blanc', 'oral', 'tp'
+    valeur          NUMERIC(5,2) NOT NULL CHECK (valeur >= 0),
+    sur             NUMERIC(5,2) DEFAULT 20.00,        -- note sur X (défaut /20)
+    commentaire     TEXT,
+    -- Traçabilité de la saisie initiale
+    saisi_par       INT REFERENCES users(id),          -- le professeur
+    date_saisie     TIMESTAMP DEFAULT NOW(),
+    est_valide      BOOLEAN DEFAULT TRUE,
+    -- Traçabilité des corrections (nécessite validation secrétariat)
+    ancienne_valeur NUMERIC(5,2),                     -- valeur avant correction
+    corrige_par     INT REFERENCES users(id),
+    date_correction TIMESTAMP,
+    motif_correction TEXT,
+    created_at      TIMESTAMP DEFAULT NOW(),
+    updated_at      TIMESTAMP DEFAULT NOW()
 );
+
 -- Moyennes stockées (dénormalisation pour performance)
 -- periode_id NULL  → moyenne annuelle
 -- matiere_id NULL  → moyenne générale toutes matières confondues

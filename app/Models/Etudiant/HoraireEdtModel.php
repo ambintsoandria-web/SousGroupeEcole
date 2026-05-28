@@ -4,15 +4,17 @@ namespace App\Models\Etudiant;
 
 use CodeIgniter\Model;
 
-class NiveauModel extends Model
+class HoraireEdtModel extends Model
 {
-    protected $table = 'niveaux';
+    protected $table = 'horaire_edt';
     protected $primaryKey = 'id';
     protected $returnType = 'array';
     protected $allowedFields = [
-        'etablissement_id',
         'libelle',
-        'ordre'
+        'heure_debut',
+        'heure_fin',
+        'ordre',
+        'is_active'
     ];
     protected $useTimestamps = true;
 }

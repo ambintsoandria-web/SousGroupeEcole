@@ -1,11 +1,17 @@
 <?php
 $pageTitle = $pageTitle ?? 'Tableau de bord';
 $activePage = $activePage ?? 'dir-dashboard';
+$activeRole = $activeRole ?? 'directeur';
+$userName = $userName ?? 'M. Rakoto';
+$userRole = $userRole ?? 'Directeur';
+$userInitials = $userInitials ?? 'DR';
 $stylePath = FCPATH . 'assets/css/style.css';
 $navActiveClass = static function (string $pageId) use ($activePage): string {
   return $activePage === $pageId ? 'nav-item active' : 'nav-item';
 };
-$activeRole = session()->get('role') ?? 'directeur';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -141,19 +147,13 @@ $activeRole = session()->get('role') ?? 'directeur';
 
       <div class="sidebar-footer">
         <div class="sidebar-user">
-          <div class="sidebar-avatar" id="sidebar-avatar-initials">
-            <?= esc(session()->get('initiales') ?? 'NN') ?>
-          </div>
+          <div class="sidebar-avatar" id="sidebar-avatar-initials"><?= esc($userInitials) ?></div>
           <div class="sidebar-user-info">
-            <strong id="sidebar-user-name">
-              <?= esc((session()->get('prenom') ?? '') . ' ' . (session()->get('nom') ?? '')) ?>
-            </strong>
-            <small id="sidebar-user-role">
-              <?= esc(ucfirst(session()->get('role') ?? 'utilisateur')) ?>
-            </small>
+            <strong id="sidebar-user-name"><?= esc($userName) ?></strong>
+            <small id="sidebar-user-role"><?= esc($userRole) ?></small>
           </div>
-          <a href="/etudiant/logout">
-            <i class="fas fa-sign-out-alt" style="color:rgba(255,255,255,.3);font-size:14px;"></i>
+          <a href="/etudiant/logout" style="color:rgba(255,255,255,.5); text-decoration:none; font-size:14px;">
+            <i class="fas fa-sign-out-alt"></i>
           </a>
         </div>
       </div>
@@ -162,6 +162,9 @@ $activeRole = session()->get('role') ?? 'directeur';
     <!-- TOPBAR -->
     <header class="topbar">
       <div class="topbar-title" id="topbar-title"><?= esc($pageTitle) ?></div>
+      <p>Etudiant : <?= session()->get("initiales") ?></p>
+      <p>Nom et prenom : <?= session()->get("nom") ?><?= session()->get("prenom") ?></p>
+      <p>Id : <?= session()->get("id") ?></p>
       <div class="topbar-search">
         <i class="fas fa-search"></i>
         <input type="text" placeholder="Rechercher…" />
@@ -179,7 +182,7 @@ $activeRole = session()->get('role') ?? 'directeur';
               <div class="notif-item-icon" style="background:var(--clr-amber-pale);color:var(--clr-amber);">💰</div>
               <div class="notif-item-text">
                 <strong>Nouveau paiement reçu</strong>
-                <small><?= esc(session()->get('prenom') . ' ' . session()->get('nom')) ?> — il y a 10 min</small>
+                <small>Rakoto Jean — 1ère A — il y a 10 min</small>
               </div>
             </div>
             <div class="notif-item unread">
@@ -207,10 +210,10 @@ $activeRole = session()->get('role') ?? 'directeur';
         </button>
         <button class="topbar-btn" type="button"><i class="fas fa-cog"></i></button>
         <div class="topbar-user" onclick="openModal('modal-profil')">
-          <div class="topbar-avatar" id="topbar-avatar-initials"><?= esc(session()->get('initiales') ?? 'NN') ?></div>
+          <div class="topbar-avatar" id="topbar-avatar-initials"><?= esc($userInitials) ?></div>
           <div class="topbar-user-meta">
-            <strong id="topbar-user-name"><?= esc(session()->get('prenom')) ?></strong>
-            <small id="topbar-user-role"><?= esc(ucfirst(session()->get('role') ?? 'utilisateur')) ?></small>
+            <strong id="topbar-user-name"><?= esc($userName) ?></strong>
+            <small id="topbar-user-role"><?= esc($userRole) ?></small>
           </div>
           <i class="fas fa-chevron-down" style="font-size:10px;color:var(--clr-text-muted);"></i>
         </div>

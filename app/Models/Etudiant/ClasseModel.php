@@ -4,15 +4,17 @@ namespace App\Models\Etudiant;
 
 use CodeIgniter\Model;
 
-class NiveauModel extends Model
+class ClasseModel extends Model
 {
-    protected $table = 'niveaux';
+    protected $table = 'classes';
     protected $primaryKey = 'id';
     protected $returnType = 'array';
     protected $allowedFields = [
-        'etablissement_id',
-        'libelle',
-        'ordre'
+        'niveau_id',
+        'annee_scolaire_id',
+        'nom',
+        'capacite_max',
+        'salle_id'
     ];
     protected $useTimestamps = true;
 }
