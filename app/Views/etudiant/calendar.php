@@ -1,97 +1,127 @@
 <?php
-$pageTitle = $pageTitle ?? 'Mon Emploi du Temps';
-$activePage = $activePage ?? 'etu-emploi';
+$pageTitle = 'Mon Emploi du Temps';
+$activePage = 'etu-emploi';
+$activeRole = 'etudiant';
+$userName = session()->get('nom') . ' ' . session()->get('prenom');
+$userRole = 'Étudiant';
+$userInitials = session()->get('initiales');
 ?>
 
 <?= view('inc/header', ['pageTitle' => $pageTitle, 'activePage' => $activePage]) ?>
 
 <section class="page-section active" id="etu-emploi">
-  <link rel="stylesheet" href="/assets/css/calendar.css">
   <div class="page-header">
     <div>
-      <h2>📅 Mon Emploi du Temps</h2>
-      <p class=""><?= esc($nom_classe ?? 'Ma Classe') ?></p>
+      <h2>Mon Emploi du Temps</h2>
+      <p><?= $semaine ?> — <?= $nom_classe ?></p>
     </div>
-  </div>
-
-  <!-- ALERTE SI ANNÉE FINIE -->
-  <?php if ($infoAnnee && $infoAnnee->statut == 'terminee'): ?>
-    <div class="alert alert-warning"
-      style="background: #fff3cd; border: 1px solid #ffecb5; border-radius: 8px; padding: 12px 20px; margin-bottom: 20px;">
-      ⚠️ <strong>Année scolaire terminée !</strong> L'année <?= esc($infoAnnee->annee) ?> est finie. Voici l'emploi du
-      temps de la période <?= esc($infoAnnee->periode) ?> à titre de consultation.
-    </div>
-  <?php endif; ?>
-
-  <!-- SÉLECTEUR DE PÉRIODE -->
-  <div class="periode-selector" style="margin-bottom: 20px;">
-    <form method="GET" action="<?= current_url() ?>"
-      style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-      <label for="periode_id" style="font-weight: 500;">📆 Choisir la période :</label>
-      <select name="periode_id" id="periode_id" onchange="this.form.submit()"
-        style="padding: 8px 12px; border-radius: 6px; border: 1px solid #ddd;">
-        <?php foreach ($periodes as $periode): ?>
-          <option value="<?= $periode['id'] ?>" <?= ($periode_selectionnee == $periode['id']) ? 'selected' : '' ?>>
-            <?= esc($periode['libelle']) ?>
-            (<?= date('d/m', strtotime($periode['date_debut'])) ?> - <?= date('d/m', strtotime($periode['date_fin'])) ?>)
+    <div style="display: flex; gap: 10px;">
+      <select class="form-control" id="annee_select" style="width:auto;padding:8px 12px;">
+        <?php foreach ($annees as $annee): ?>
+          <option value="<?= $annee['id'] ?>" <?= ($annee_selectionnee == $annee['id']) ? 'selected' : '' ?>>
+            Année <?= esc($annee['libelle']) ?>
           </option>
         <?php endforeach; ?>
       </select>
 
-      <?php if ($infoAnnee && $infoAnnee->statut == 'active'): ?>
-        <span style="background: #28a745; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px;">
-          ✅ Période en cours
-        </span>
-      <?php endif; ?>
-    </form>
+      <select class="form-control" id="periode_select" style="width:auto;padding:8px 12px;">
+        <?php foreach ($periodes as $periode): ?>
+          <option value="<?= $periode['id'] ?>" <?= ($periode_selectionnee == $periode['id']) ? 'selected' : '' ?>>
+            <?= esc($periode['libelle']) ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+    </div>
   </div>
 
-  <div class="edt-container">
-    <div class="edt-grid">
-      <!-- En-tête -->
-      <div class="edt-cell edt-header">Horaire</div>
-      <?php foreach ($jours as $jour): ?>
-        <div class="edt-cell edt-header">
-          <div class="day-name"><?= esc(substr($jour, 0, 3)) ?></div>
-          <div class="day-full"><?= esc($jour) ?></div>
-        </div>
-      <?php endforeach; ?>
-
-      <!-- Lignes de cours -->
-      <?php foreach ($creneaux as $heure => $label): ?>
-        <div class="edt-cell edt-time"><?= esc($label) ?></div>
+  <div class="card">
+    <div class="card-body" style="padding:var(--sp-md);">
+      <div class="schedule-grid">
+        <div class="schedule-header">Heure</div>
         <?php foreach ($jours as $jour): ?>
-          <div class="edt-cell edt-course">
-            <?php if (isset($planning[$jour][$heure])):
-              $cours = $planning[$jour][$heure];
-              ?>
-              <div class="course-card">
-                <div class="course-matiere"><?= esc($cours['matiere']) ?></div>
-                <div class="course-prof">👨‍🏫 <?= esc($cours['professeur']) ?></div>
-                <?php if (!empty($cours['salle'])): ?>
-                  <div class="course-salle">📍 <?= esc($cours['salle']) ?></div>
-                <?php endif; ?>
-              </div>
-            <?php endif; ?>
-          </div>
+          <div class="schedule-header"><?= $jour ?></div>
         <?php endforeach; ?>
-      <?php endforeach; ?>
+
+        <?php foreach ($creneaux as $heure => $libelle): ?>
+          <div class="schedule-cell schedule-time"><?= $libelle ?></div>
+          <?php foreach ($jours as $jour): ?>
+            <div class="schedule-cell">
+              <?php if (isset($planning[$jour][$heure])):
+                $cours = $planning[$jour][$heure];
+                ?>
+                <div class="schedule-class">
+                  <span><?= esc($cours['matiere']) ?></span>
+                  <small><?= esc($cours['professeur']) ?></small>
+                </div>
+              <?php endif; ?>
+            </div>
+          <?php endforeach; ?>
+        <?php endforeach; ?>
+      </div>
     </div>
   </div>
 </section>
 
+<script>
+  document.getElementById('annee_select').addEventListener('change', function () {
+    let annee_id = this.value;
+    let periode_id = document.getElementById('periode_select').value;
+    window.location.href = '?annee_id=' + annee_id + '&periode_id=' + periode_id;
+  });
+
+  document.getElementById('periode_select').addEventListener('change', function () {
+    let periode_id = this.value;
+    let annee_id = document.getElementById('annee_select').value;
+    window.location.href = '?annee_id=' + annee_id + '&periode_id=' + periode_id;
+  });
+</script>
+
 <style>
-  .periode-selector select {
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: 100px repeat(5, 1fr);
+    gap: 1px;
+    background: #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .schedule-header,
+  .schedule-cell {
     background: white;
-    cursor: pointer;
+    padding: 12px 8px;
+    text-align: center;
+    font-size: 13px;
   }
 
-  .periode-selector select:hover {
-    border-color: #007bff;
+  .schedule-header {
+    background: #1e3a5f;
+    color: white;
+    font-weight: 600;
   }
 
-  .alert-warning {
-    margin-bottom: 20px;
+  .schedule-time {
+    background: #f5f5f5;
+    font-weight: 500;
+  }
+
+  .schedule-class {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 6px;
+    text-align: center;
+  }
+
+  .schedule-class span {
+    font-weight: 600;
+    font-size: 13px;
+    display: block;
+  }
+
+  .schedule-class small {
+    font-size: 10px;
+    color: #666;
+    display: block;
   }
 </style>
 

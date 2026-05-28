@@ -1,22 +1,38 @@
-/* ============================================================
+  /* ============================================================
      ROLE CONFIGURATIONS
   ============================================================ */
   const roles = {
     directeur: {
-      nav: 'nav-directeur',
-      url: '/directeur/dashboard'
+      name: 'M. Rakoto',
+      role: 'Directeur',
+      initials: 'DR',
+      defaultPage: 'dir-dashboard',
+      url: '/directeur/dashboard',
+      nav: 'nav-directeur'
     },
     secretariat: {
-      nav: 'nav-secretariat',
-      url: '/secretariat/paiement'
+      name: 'Mme. Rasoa',
+      role: 'Secrétaire',
+      initials: 'RS',
+      defaultPage: 'sec-paiements',
+      url: '/secretariat/paiement',
+      nav: 'nav-secretariat'
     },
     professeur: {
-      nav: 'nav-professeur',
-      url: '/professeur/calendar'
+      name: 'Prof. Rabe',
+      role: 'Professeur',
+      initials: 'RB',
+      defaultPage: 'prof-emploi',
+      url: '/professeur/calendar',
+      nav: 'nav-professeur'
     },
     etudiant: {
-      nav: 'nav-etudiant',
-      url: '/etudiant/calendar'
+      name: 'Rakoto Jean',
+      role: 'Étudiant',
+      initials: 'RJ',
+      defaultPage: 'etu-emploi',
+      url: '/etudiant/calendar',
+      nav: 'nav-etudiant'
     }
   };
 
@@ -78,20 +94,30 @@
 
     document.body.dataset.activeRole = roleKey;
 
-    // Changer la navigation affichée
     document.querySelectorAll('.nav-section').forEach(nav => {
       nav.style.display = nav.id === r.nav ? 'block' : 'none';
     });
 
-    // Changer la valeur du select
+    const userName = document.getElementById('sidebar-user-name');
+    const userRole = document.getElementById('sidebar-user-role');
+    const sidebarInitials = document.getElementById('sidebar-avatar-initials');
+    const topbarName = document.getElementById('topbar-user-name');
+    const topbarRole = document.getElementById('topbar-user-role');
+    const topbarInitials = document.getElementById('topbar-avatar-initials');
+
+    if (userName) userName.textContent = r.name;
+    if (userRole) userRole.textContent = r.role;
+    if (sidebarInitials) sidebarInitials.textContent = r.initials;
+    if (topbarName) topbarName.textContent = r.name;
+    if (topbarRole) topbarRole.textContent = r.role;
+    if (topbarInitials) topbarInitials.textContent = r.initials;
+
     const roleSelect = document.getElementById('roleSelect');
     if (roleSelect) roleSelect.value = roleKey;
-    
-    // NE PAS TOUCHER AUX NOMS/INITIALES - PHP les gère
   }
 
   function getRoleFromPage(pageId) {
-    return pageRoles[pageId] || null;
+    return Object.prototype.hasOwnProperty.call(pageRoles, pageId) ? pageRoles[pageId] : null;
   }
 
   function syncHeaderToPage(pageId) {
@@ -110,22 +136,34 @@
     }
   }
 
+  /* ============================================================
+     SWITCH ROLE
+  ============================================================ */
   function switchRole(roleKey) {
     const r = roles[roleKey];
     if (!r) return;
+
     applyRole(roleKey, true);
     window.location.href = r.url;
   }
 
+  /* ============================================================
+     SHOW PAGE
+  ============================================================ */
   function showPage(pageId) {
     const target = document.getElementById(pageId);
-    if (!target) return;
+    if (!target) {
+      return;
+    }
 
     const sections = document.querySelectorAll('.page-section');
     if (sections.length > 1) {
       sections.forEach(s => s.classList.remove('active'));
     }
-    target.classList.add('active');
+    if (target) {
+      target.classList.add('active');
+    }
+
     syncHeaderToPage(pageId);
   }
 
@@ -138,7 +176,7 @@
   function closeModal(id) {
     document.getElementById(id).classList.remove('open');
   }
-
+  // Close on backdrop click
   document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
     backdrop.addEventListener('click', (e) => {
       if (e.target === backdrop) backdrop.classList.remove('open');
@@ -151,11 +189,13 @@
   function toggleNotif() {
     document.getElementById('notif-dropdown').classList.toggle('open');
   }
-
   document.addEventListener('click', (e) => {
+    const notifPanel = document.querySelector('.notif-panel');
     const dropdown = document.getElementById('notif-dropdown');
     if (!e.target.closest('.topbar-btn') || !dropdown.contains(e.target)) {
-      dropdown.classList.remove('open');
+      if (!e.target.closest('.topbar-btn')) {
+        dropdown.classList.remove('open');
+      }
     }
   });
 
@@ -171,12 +211,22 @@
     setTimeout(() => {
       toast.style.opacity = '0';
       toast.style.transform = 'translateX(20px)';
+      toast.style.transition = 'all .3s ease';
       setTimeout(() => toast.remove(), 300);
     }, duration);
   }
 
   /* ============================================================
-     FILTER PILLS
+     POLL SELECTION
+  ============================================================ */
+  function selectPoll(el) {
+    const parent = el.parentElement;
+    parent.querySelectorAll('.poll-option').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+
+  /* ============================================================
+     FILTER PILLS (interactive)
   ============================================================ */
   document.querySelectorAll('.filter-pills').forEach(group => {
     group.querySelectorAll('.pill').forEach(pill => {
@@ -200,7 +250,7 @@
   });
 
   /* ============================================================
-     KEYBOARD
+     KEYBOARD: ESC closes modal
   ============================================================ */
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -209,9 +259,7 @@
     }
   });
 
-  /* ============================================================
-     INIT
-  ============================================================ */
+  /* Init */
   window.addEventListener('DOMContentLoaded', () => {
     const activePage = document.body.dataset.activePage;
     const activeSection = activePage ? document.getElementById(activePage) : document.querySelector('.page-section.active');
@@ -221,9 +269,8 @@
 
     const storedRole = localStorage.getItem(roleStorageKey);
     const pageRole = getRoleFromPage(activePage);
-    const finalRole = pageRole || storedRole || document.body.dataset.activeRole || 'directeur';
-    
-    applyRole(finalRole, false);
+    applyRole(pageRole || storedRole || document.body.dataset.activeRole || 'directeur', false);
+
     syncHeaderToPage(activePage || (activeSection && activeSection.id));
 
     setTimeout(() => showToast('👋 Bienvenue sur LycéePro !'), 800);

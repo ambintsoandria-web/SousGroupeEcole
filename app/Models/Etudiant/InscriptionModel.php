@@ -21,14 +21,31 @@ class InscriptionModel extends Model
     ];
     protected $useTimestamps = true;
 
-    public function getClasseEtudiant($id_etudiant)
+    public function getClasseId($etudiant_id)
     {
-        return $this->select('classes.id, classes.nom, niveaux.libelle as niveau_libelle, inscriptions.annee_scolaire_id')
-            ->join('classes', 'classes.id = inscriptions.classe_id')
-            ->join('niveaux', 'niveaux.id = classes.niveau_id')
-            ->where('inscriptions.etudiant_id', $id_etudiant)
-            ->where('inscriptions.statut', 'active')
-            ->orderBy('inscriptions.created_at', 'DESC')
+        $row = $this->where('etudiant_id', $etudiant_id)
+            ->where('statut', 'active')
             ->first();
+        return $row ? $row['classe_id'] : null;
+    }
+
+    public function getAnneeScolaireId($etudiant_id)
+    {
+        $row = $this->where('etudiant_id', $etudiant_id)
+            ->where('statut', 'active')
+            ->first();
+        return $row ? $row['annee_scolaire_id'] : null;
+    }
+    public function getNomClasse($classe_id)
+    {
+        $db = \Config\Database::connect();
+        $result = $db->table('classes c')
+            ->select('c.nom, n.libelle')
+            ->join('niveaux n', 'n.id = c.niveau_id')
+            ->where('c.id', $classe_id)
+            ->get()
+            ->getRowArray();
+
+        return $result ? $result['libelle'] . ' ' . $result['nom'] : '';
     }
 }

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Lycée</title>
     <link rel="stylesheet" href="/assets/css/login.css">
 </head>
+
 <body>
     <div class="login-container">
         <div class="login-header">
@@ -19,7 +21,8 @@
 
         <?php if (session()->getFlashdata('error')): ?>
             <div class="alert-error">
-                ⚠️ <?= esc(session()->getFlashdata('error')) ?>
+                ⚠️
+                <?= esc(session()->getFlashdata('error')) ?>
             </div>
         <?php endif; ?>
 
@@ -42,4 +45,5 @@
         </div>
     </div>
 </body>
+
 </html>

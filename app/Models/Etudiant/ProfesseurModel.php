@@ -4,9 +4,9 @@ namespace App\Models\Etudiant;
 
 use CodeIgniter\Model;
 
-class EtudiantModel extends Model
+class ProfesseurModel extends Model
 {
-    protected $table = 'profils_etudiants';
+    protected $table = 'profils_professeurs';
     protected $primaryKey = 'id';
     protected $returnType = 'array';
     protected $allowedFields = [
@@ -15,21 +15,15 @@ class EtudiantModel extends Model
         'nom',
         'prenom',
         'date_naissance',
-        'lieu_naissance',
         'sexe',
         'photo_url',
-        'adresse',
-        'commune',
-        'region',
-        'nationalite',
-        'cin',
         'telephone',
+        'adresse',
+        'specialite',
+        'type_contrat',
+        'date_debut_contrat',
+        'date_fin_contrat',
         'is_archived'
     ];
     protected $useTimestamps = true;
-    public function getInitials($nom, $prenom)
-    {
-        return strtoupper(substr($nom, 0, 1) . substr($prenom, 0, 1));
-    }
-
 }
