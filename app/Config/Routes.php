@@ -37,8 +37,8 @@ $routes->group('etudiant', function ($routes) {
     $routes->post('login', 'Etudiant\UserController::login');
     $routes->get('logout', 'Etudiant\UserController::logout');
 
-    $routes->get('bulletin', 'Home::bulletin_etudiants');
+    $routes->get('bulletin', 'Etudiant\BulletinController::index');
     $routes->get('calendar', 'Etudiant\CalendarController::index');  // ← MODIFIÉ
     $routes->get('notes', 'Etudiant\NotesController::go_to_notes');
-    $routes->get('devoirs', 'Home::devoirs_etudiants');
+    $routes->get('devoirs', 'Etudiant\DevoirController::index');
 });
