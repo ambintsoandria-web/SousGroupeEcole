@@ -112,73 +112,59 @@ CREATE TABLE annees_scolaires (
     est_active       BOOLEAN DEFAULT FALSE,          -- l'année scolaire en cours
     created_at       TIMESTAMP DEFAULT NOW()
 );
-
--- Niveaux d'enseignement (ex : Seconde, Première, Terminale)
--- Le champ "ordre" permet d'afficher les niveaux du plus bas au plus haut
-CREATE TABLE niveaux (
-    id               SERIAL PRIMARY KEY,
-    etablissement_id INT REFERENCES etablissements(id),
-    libelle          VARCHAR(100) NOT NULL,
-    ordre            INT NOT NULL,                   -- tri croissant : 1=Seconde, 2=Première…
-    created_at       TIMESTAMP DEFAULT NOW()
-);
-
 -- Classes (ex : "Terminale A 2024-2025")
 -- Une classe est l'instance d'un niveau pour une année donnée
-CREATE TABLE classes (
-    id                SERIAL PRIMARY KEY,
-    niveau_id         INT REFERENCES niveaux(id),
-    annee_scolaire_id INT REFERENCES annees_scolaires(id),
-    nom               VARCHAR(100) NOT NULL,         -- ex : 'Terminale A', '1ère S'
-    capacite_max      INT DEFAULT 40,
-    created_at        TIMESTAMP DEFAULT NOW()
+CREATE TABLE classe (
+    id_classe       UUID          PRIMARY KEY DEFAULT gen_random_uuid(),
+    code_classe     VARCHAR(20)   NOT NULL UNIQUE,
+    nom_classe      VARCHAR(100)  NOT NULL,
+    niveau          VARCHAR(30)   NOT NULL,
+    serie           VARCHAR(30),
+    annee_scolaire  SMALLINT      NOT NULL,  -- ex: 2026
+    effectif_max    SMALLINT      NOT NULL DEFAULT 40 CHECK (effectif_max > 0),
+    id_salle        UUID          REFERENCES salle(id_salle) ON DELETE SET NULL,
+    id_professeur_principal UUID  REFERENCES professeur(id_professeur) ON DELETE SET NULL,
+    created_at      TIMESTAMPTZ   NOT NULL DEFAULT NOW(),
+    updated_at      TIMESTAMPTZ   NOT NULL DEFAULT NOW()
 );
 
+
 -- Salles de cours disponibles dans l'établissement
-CREATE TABLE salles (
-    id               SERIAL PRIMARY KEY,
-    etablissement_id INT REFERENCES etablissements(id),
-    nom              VARCHAR(100) NOT NULL,           -- ex : 'Salle 12', 'Labo Chimie'
-    capacite         INT,
-    type             VARCHAR(50) DEFAULT 'cours',     -- 'cours', 'laboratoire', 'amphi', 'sport'
-    is_active        BOOLEAN     DEFAULT TRUE,
-    created_at       TIMESTAMP   DEFAULT NOW()
+CREATE TABLE salle (
+    id_salle        UUID          PRIMARY KEY DEFAULT gen_random_uuid(),
+    code_salle      VARCHAR(20)   NOT NULL UNIQUE,
+    libelle         VARCHAR(100)  NOT NULL,
+    capacite        SMALLINT      NOT NULL CHECK (capacite > 0),
+    batiment        VARCHAR(50),
+    equipements     TEXT,
+    created_at      TIMESTAMPTZ   NOT NULL DEFAULT NOW()
 );
 
 -- Matières enseignées dans l'établissement
-CREATE TABLE matieres (
-    id               SERIAL PRIMARY KEY,
-    etablissement_id INT REFERENCES etablissements(id),
-    nom              VARCHAR(150) NOT NULL,           -- ex : 'Mathématiques', 'Français'
-    code             VARCHAR(20),                     -- ex : 'MATH', 'FRAN', 'SVT'
-    created_at       TIMESTAMP DEFAULT NOW()
-);
-
--- Coefficients d'une matière selon le niveau
--- Le coeff varie selon le niveau (ex : Maths coeff 4 en Terminale, 3 en Première)
--- Indispensable pour le calcul correct des moyennes pondérées
-CREATE TABLE coefficients (
-    id         SERIAL PRIMARY KEY,
-    matiere_id INT REFERENCES matieres(id) ON DELETE CASCADE,
-    niveau_id  INT REFERENCES niveaux(id)  ON DELETE CASCADE,
-    valeur     NUMERIC(4,2) NOT NULL,                 -- ex : 4.00, 3.00, 1.50
-    UNIQUE (matiere_id, niveau_id)
+CREATE TABLE matiere (
+    id_matiere      UUID          PRIMARY KEY DEFAULT gen_random_uuid(),
+    code_matiere    VARCHAR(20)   NOT NULL UNIQUE,
+    intitule        VARCHAR(150)  NOT NULL,
+    coefficient     NUMERIC(4,2)  NOT NULL DEFAULT 1 CHECK (coefficient > 0),
+    unite           VARCHAR(50),
+    niveau          VARCHAR(30),  -- ex: Terminale, Première, Seconde
+    serie           VARCHAR(30),  -- ex: C, D, A2
+    created_at      TIMESTAMPTZ   NOT NULL DEFAULT NOW()
 );
 
 -- Périodes d'évaluation (trimestres ou semestres selon l'école)
 -- date_publication_notes : avant cette date, les élèves ne voient pas leurs notes
-CREATE TABLE periodes (
-    id                     SERIAL PRIMARY KEY,
-    annee_scolaire_id      INT REFERENCES annees_scolaires(id),
-    libelle                VARCHAR(100) NOT NULL,     -- ex : '1er Trimestre', '2ème Semestre'
-    type                   VARCHAR(20) DEFAULT 'trimestre',  -- 'trimestre' | 'semestre'
-    ordre                  INT NOT NULL,              -- 1, 2 ou 3
-    date_debut             DATE,
-    date_fin               DATE,
-    date_publication_notes DATE,                      -- date de visibilité des notes pour les élèves
-    est_cloturee           BOOLEAN DEFAULT FALSE      -- TRUE = plus aucune saisie/correction possible
+CREATE TABLE periode (
+    id_periode      UUID          PRIMARY KEY DEFAULT gen_random_uuid(),
+    libelle         VARCHAR(60)   NOT NULL,   -- ex: "1er Trimestre 2026"
+    type_periode    VARCHAR(20)   NOT NULL
+                    CHECK (type_periode IN ('trimestre','semestre','annuel')),
+    date_debut      DATE          NOT NULL,
+    date_fin        DATE          NOT NULL,
+    annee_scolaire  SMALLINT      NOT NULL,
+    CONSTRAINT chk_dates CHECK (date_fin > date_debut),
+    created_at      TIMESTAMPTZ   NOT NULL DEFAULT NOW()
 );
-
 
 -- ============================================================
 -- SECTION 3 — PROFILS DES ACTEURS
@@ -352,17 +338,23 @@ CREATE TABLE affectations_enseignement (
 -- ============================================================
 
 -- Règles de cours récurrentes hebdomadaires
-CREATE TABLE emploi_du_temps (
-    id                  SERIAL PRIMARY KEY,
-    affectation_id      INT REFERENCES affectations_enseignement(id),
-    salle_id            INT REFERENCES salles(id),
-    jour_semaine        INT NOT NULL CHECK (jour_semaine BETWEEN 1 AND 6),
-    -- 1=Lundi, 2=Mardi, 3=Mercredi, 4=Jeudi, 5=Vendredi, 6=Samedi
-    heure_debut         TIME NOT NULL,
-    heure_fin           TIME NOT NULL,
-    date_debut_validite DATE,                          -- NULL = depuis le début de l'année scolaire
-    date_fin_validite   DATE,                          -- NULL = jusqu'à la fin de l'année scolaire
-    created_at          TIMESTAMP DEFAULT NOW()
+CREATE TABLE emploi_temps (
+    id_creneau      UUID          PRIMARY KEY DEFAULT gen_random_uuid(),
+    jour_semaine    VARCHAR(10)   NOT NULL
+                    CHECK (jour_semaine IN ('Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi')),
+    heure_debut     TIME          NOT NULL,
+    heure_fin       TIME          NOT NULL,
+    annee_scolaire  SMALLINT      NOT NULL,
+    CONSTRAINT chk_heures CHECK (heure_fin > heure_debut),
+    id_classe       UUID          NOT NULL REFERENCES classe(id_classe) ON DELETE CASCADE,
+    id_matiere      UUID          NOT NULL REFERENCES matiere(id_matiere) ON DELETE RESTRICT,
+    id_professeur   UUID          NOT NULL REFERENCES professeur(id_professeur) ON DELETE RESTRICT,
+    id_salle        UUID          REFERENCES salle(id_salle) ON DELETE SET NULL,
+    -- Éviter les doublons : même classe, même créneau
+    UNIQUE (id_classe, jour_semaine, heure_debut, annee_scolaire),
+    -- Éviter conflits prof : même prof, même créneau
+    UNIQUE (id_professeur, jour_semaine, heure_debut, annee_scolaire),
+    created_at      TIMESTAMPTZ   NOT NULL DEFAULT NOW()
 );
 
 -- Modifications ponctuelles ou permanentes d'un créneau
@@ -397,21 +389,6 @@ CREATE TABLE modifications_edt (
 -- un jour précis, nécessaire pour attacher un pointage réel.
 -- Absences : un enregistrement par étudiant absent par séance.
 -- ============================================================
-
--- Chaque occurrence réelle d'un créneau (générée en début d'année ou à la volée)
--- a_eu_lieu = FALSE si le cours est annulé (prof absent, événement, etc.)
-CREATE TABLE seances (
-    id                 SERIAL PRIMARY KEY,
-    emploi_du_temps_id INT REFERENCES emploi_du_temps(id),
-    date_seance        DATE NOT NULL,
-    heure_debut        TIME,
-    heure_fin          TIME,
-    a_eu_lieu          BOOLEAN DEFAULT TRUE,           -- FALSE = cours annulé
-    created_at         TIMESTAMP DEFAULT NOW()
-);
-
--- Pointage des absences par étudiant pour chaque séance
--- UNIQUE sur (seance_id, etudiant_id) : un seul enregistrement par élève par cours
 CREATE TABLE absences (
     id               SERIAL PRIMARY KEY,
     seance_id        INT REFERENCES seances(id),
